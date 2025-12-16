@@ -384,54 +384,15 @@ Topics allow you to simplify FCM server integration as you do not need to keep a
 
 To learn more about how to send messages to devices subscribed to topics, see [Topic messaging on Android](https://firebase.google.com/docs/cloud-messaging/android/topic-messaging) or [Send messages to topics on Apple platforms](https://firebase.google.com/docs/cloud-messaging/ios/topic-messaging).
 
-### Subscribing to topics
-
-To subscribe a device to a topic, call the [subscribeToTopic](#subscribetotopic) method on the [Messsaging](#messaging-class) instance with the topic name (must not include ´/´):
-
-```ts
-import { firebase } from '@nativescript/firebase-core';
-
-firebase()
-	.messaging()
-	.subscribeToTopic('weather')
-	.then(() => console.log('Subscribed to topic!'));
-```
-
-### Unsubscribing to topics
-
-To unsubscribe from a topic, call the [unsubscribeFromTopic](#unsubscribefromtopic) method with the topic name:
-
-```ts
-import { firebase } from '@nativescript/firebase-core';
-
-firebase()
-	.messaging()
-	.unsubscribeFromTopic('weather')
-	.then(() => console.log('Unsubscribed fom the topic!'));
-```
-
-### Send messages to a user device via topics
-
-Topics are mechanisms that allow a device to subscribe and unsubscribe from named [PubSub channels](https://redis.io/commands/pubsub-channels/), all managed via FCM. Rather than sending a message to a specific device by FCM token, you can instead send a message to a topic and any devices subscribed to that topic will receive the message.
-
-Topics allow you to simplify FCM server integration as you do not need to keep a store of device tokens. There are, however, some things to keep in mind about topics:
-
-- Messages sent to topics should not contain sensitive or private information. 
-- Do not create a topic for a specific user to subscribe to.
-- Topic messaging supports unlimited subscriptions for each topic.
-- One app instance can be subscribed to no more than 2000 topics.
-- The frequency of new subscriptions is rate-limited per project. If you send too many subscription requests in a short period, FCM servers will respond with a `429 RESOURCE_EXHAUSTED` ("quota exceeded") response. 
-- A server integration can send a single message to multiple topics at once. However, this is limited to `5` topics.
-
-To learn more about how to send messages to devices subscribed to topics, see [Topic messaging on Android](https://firebase.google.com/docs/cloud-messaging/android/topic-messaging) or [Send messages to topics on Apple platforms](https://firebase.google.com/docs/cloud-messaging/ios/topic-messaging).
 
 ### Subscribing to topics
 
-To subscribe a device to a topic, call the [subscribeToTopic](#subscribetotopic) method on the [Messaging](#messaging-class) instance with the topic name (must not include `/`):
+To subscribe a device to a topic, call the [subscribeToTopic](#subscribetotopic) method on the [Messaging](#messaging-class) instance with the topic name (must not include `/`).
 
 ```ts
 import { firebase } from '@nativescript/firebase-core';
 
+// requires firebase().initializeApp() in app.ts or main.ts
 firebase()
 	.messaging()
 	.subscribeToTopic('weather')
@@ -445,6 +406,7 @@ To unsubscribe from a topic, call the [unsubscribeFromTopic](#unsubscribefromtop
 ```ts
 import { firebase } from '@nativescript/firebase-core';
 
+// requires firebase().initializeApp() in app.ts or main.ts
 firebase()
 	.messaging()
 	.unsubscribeFromTopic('weather')
