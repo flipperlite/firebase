@@ -98,7 +98,7 @@ To request permission, call the [requestPermission](#requestpermission) method o
 
 ```ts
 import { firebase } from '@nativescript/firebase-core';
-import { AuthorizationStatus } from '@nativescript/firebase-messaging-core';
+import { AuthorizationStatus } from '@nativescript/firebase-messaging';
 
 async function requestUserPermission() {
 	const authStatus = await firebase()
