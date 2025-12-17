@@ -81,7 +81,7 @@ You need to set up your app for Firebase before you can enable Firebase Messagin
 1. The `firebase().initializeApp().then()` (without using async/await) should be called only once per app as soon as possible in your app.ts or main.ts (from `package.json` -> "main" prop) to avoid errors like `TypeError: Cannot read properties of null (reading 'subscribeToTopicCompletion')`. Run command `pod repo update` for error `CocoaPods could not find compatible versions for pod "Firebase/Messaging"`.
 2. Your `nativescript.config.ts` -> app "id" prop needs to be correct. If you used the NS templates, it may start with "org.nativescript". You'll use this ID when registering your app with Firebase and Apple.
 3. From [Firebase](https://console.firebase.google.com/), create your project and register your app both for iOS and Android. From Project settings -> app settings -> SDK setup and configuration, download your respective configuration files to `App_Resources/iOS/GoogleService-Info.plist` and `App_Resources/Android/google-services.json`. Generate new keys for Apple Push Notifications (APNs) at the [ Apple Developer Portal](https://developer.apple.com/) -> Certificates, Identifiers & Profiles -> Keys . Download the *.p8 files from Apple then upload the *.p8 files to Firebase -> Project -> Cloud Messaging tab using the Key ID (10 length string) and Team ID (8 length string). Android does not require *.p8 files.
-4. Create `App_Resources/iOS/app.entitlements` (it must be named that) with the following.
+4. Create `App_Resources/iOS/app.entitlements` (it must be named that) with the following to avoid error `No APNS token specified before fetching FCM Token`.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
