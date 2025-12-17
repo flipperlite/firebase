@@ -98,7 +98,7 @@ You need to set up your app for Firebase before you can enable Firebase Messagin
 </plist>
 ```
 
-5. Run `ns clean` and `ns install`
+5. Running `ns clean` and `ns install` when you encounter issues may help BUT you may need to redo step #4 above.
 
 ## Add the Firebase Cloud Messaging SDK to your app
 
