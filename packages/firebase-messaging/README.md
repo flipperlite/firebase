@@ -109,10 +109,11 @@ You need to set up your app for Firebase before you can enable Firebase Messagin
 
 To add the Firebase Cloud Messaging SDK to your app follow these steps:
 
-1. Install the `@nativescript/firebase-messaging` plugin by running the following command in the root directory of your project. The npm package `@nativescript/firebase-core` is already installed from the previous section.
+1. Install the two other `firebase` plugins by running the following commands in the root directory of your project. The npm package `@nativescript/firebase-core` is already installed from the previous section.
 
 ```cli
-npm install @nativescript/firebase-messaging --save
+npm i @nativescript/firebase-messaging --save
+npm i @nativescript/firebase-messaging-core --save
 ```
 
 2. Add the SDK by importing the `@nativescript/firebase-messaging` module. You should import this module once in your app, ideally in the main file (e.g. `app.ts` or `main.ts`). You also need to `initializeApp()`.
